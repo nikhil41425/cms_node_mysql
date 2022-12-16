@@ -2,8 +2,9 @@ const pool = require("../db");
 
 module.exports = {
     userRegister: async (data, callback) => {
+        let query = `select * from cms.user where email = ?`
         pool.query(
-            `select * from cms.user where email = ?`,
+            query,
             [data.email],
             (err, result) => {
                 if (err) {
