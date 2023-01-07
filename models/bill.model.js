@@ -11,5 +11,27 @@ module.exports = {
                 callback(null,result)
             }
          })
+    },
+    getBills : async(callback)=>{
+        let query = `select * from bill order by id desc`
+
+        pool.query(query,(err,result)=>{
+            if(err){
+                callback(err)
+            }else{
+                callback(null,result)
+            }
+        })
+
+    },
+    deleteBill : async(id,callback)=>{
+        let query = `delete from bill where id = ?`
+        pool.query(query,[id],(err,result)=>{
+            if(err){
+                callback(err)
+            }else{
+                callback(null,result)
+            }
+        })
     }
 }

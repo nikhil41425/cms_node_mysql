@@ -9,6 +9,7 @@ const userRoute = require('./routes/user.route')
 const category = require('./routes/category.route')
 const product = require('./routes/product.route')
 const bill = require('./routes/bill.route')
+const dashboard = require('./routes/dashboard.route')
 
 app.use(cors())
 app.use(express.urlencoded({extended:true}))
@@ -19,6 +20,7 @@ app.use("/api/v1/user",userRoute)
 app.use("/api/v1/category",category)
 app.use("/api/v1/product",product)
 app.use("/api/v1/bill",bill)
+app.use("/api/v1/dashboard",dashboard)
 
 const PORT = process.env.PORT
 
